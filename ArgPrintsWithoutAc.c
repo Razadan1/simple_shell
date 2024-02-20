@@ -10,6 +10,7 @@
 */
 int main(int ac, char **av)
 {
+	void(ac);
 	printf("The arguements are:\n");
 	while (*av != NULL)
 	{
