@@ -9,7 +9,7 @@ int main(void)
 	bool isPipe = false;
 	ssize_t buff_len;
 
-	while (!isPipe && true)
+	while (true && !isPipe)
 	{
 		if (isatty(STDIN_FILENO) == 0)
 			isPipe = true;

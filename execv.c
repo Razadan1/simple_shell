@@ -21,12 +21,13 @@ void _execute(char **commands)
 	}
 	if (_id == 0)
 	{
+
 		int value = execve(commands[0], commands, environ);
 
 		free_buff(commands);
-		if (value == -1)
+		if (value == 1)
 		{
-			perror("Command not found\n");
+			perror("nsh\n");
 			exit(EXIT_FAILURE);
 		}
 	}

@@ -18,12 +18,12 @@ char **break_buff(char *buff)
 	while (tok != NULL)
 	{
 		toks[len] = strdup(tok);
-		++len;
+		len++;
 
 		tok = strtok(NULL, delims);
 	}
 
 	toks[len] = NULL;
-	free(toks);
+	free(tok);
 	return (toks);
 }
