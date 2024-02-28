@@ -40,11 +40,6 @@ ssize_t _getline(void)
 
 		commands = break_buff(buff);
 		free(buff);
-		if (args[0] == NULL)
-		{
-			free_buff(commands);
-			break;
-		}
 		_execute(commands);
 		buff_size = 0;
 		if (isatty(STDIN_FILENO) != 0)
