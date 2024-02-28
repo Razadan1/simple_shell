@@ -12,7 +12,7 @@ char **break_buff(char *buff)
 {
 	int len = 0;
 	char **toks = malloc(sizeof(char *) * strlen(buff));
-	char *delims = "\r\n\t";
+	char *delims = " \r\n\t";
 	char *tok = strtok(buff, delims);
 
 	while (tok != NULL)
