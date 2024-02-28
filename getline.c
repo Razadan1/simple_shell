@@ -30,6 +30,8 @@ ssize_t _getline(void)
 		if (buff[buff_len - 1] == '\n')
 		{
 			buff[buff_len - 1] = '\0';
+			free(buff);
+			break;
 		}
 		if (strlen(buff) == 0)
 		{
