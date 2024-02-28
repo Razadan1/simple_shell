@@ -5,5 +5,5 @@
 */
 void prompt(void)
 {
-	write(STDOUT_FILENO, "($) ", 4);
+	write(STDOUT_FILENO, "$ ", 2);
 }

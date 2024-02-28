@@ -16,6 +16,7 @@ ssize_t _getline(void)
 	while (true)
 	{
 		buff_len = getline(&buff, &buff_size, stdin);
+
 		if (buff_len == EOF)
 		{
 			free(buff);
