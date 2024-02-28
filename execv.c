@@ -27,7 +27,6 @@ void _execute(char **commands)
 		free_buff(commands);
 		if (value == -1)
 		{
-			perror("nsh\n");
 			perror("Command not found");
 			exit(EXIT_FAILURE);
 		}

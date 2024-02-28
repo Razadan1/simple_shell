@@ -10,10 +10,10 @@ char str_len(char *str)
 {
 	int count = 0;
 
-	while (*s != '\0')
+	while (*str != '\0')
 	{
 	count++;
-	s++;
+	str++;
 	}
 	return (count);
 }
@@ -27,7 +27,7 @@ char str_len(char *str)
 */
 char *str_cpy(char *dest, const char *src)
 {
-	char *original_dest = dest;
+	char *main_dest = dest;
 
 	while (*src != '\0')
 	{
@@ -37,7 +37,7 @@ char *str_cpy(char *dest, const char *src)
 	}
 
 	*dest = '\0';
-	return (original_dest);
+	return (main_dest);
 }
 
 /**
@@ -49,7 +49,7 @@ char *str_cpy(char *dest, const char *src)
 */
 char *str_cat(char *dest, char *src)
 {
-	char *original_dest = dest;
+	char *main_dest = dest;
 
 	while (*dest != '\0')
 	{
@@ -64,7 +64,7 @@ char *str_cat(char *dest, char *src)
 	}
 
 	*dest = '\0';
-	return (original_dest);
+	return (main_dest);
 }
 
 
@@ -79,10 +79,10 @@ char *str_dup(char *str)
 	char *ptr;
 	int i, len;
 
-	if (s == NULL)
+	if (str == NULL)
 	return (NULL);
 
-	len = _strlen(s);
+	len = str_len(str);
 
 	ptr = malloc(sizeof(char) * (len + 1));
 	if (!ptr)
@@ -90,8 +90,8 @@ char *str_dup(char *str)
 		free(ptr);
 		return (NULL);
 	}
-	for (i = 0; *s != '\0'; s++, i++)
-	ptr[i] = s[0];
+	for (i = 0; *str != '\0'; str++, i++)
+	ptr[i] = str[0];
 
 	ptr[i++] = '\0';
 	return (ptr);
@@ -100,19 +100,19 @@ char *str_dup(char *str)
 /**
  * _strcmp - compares two strings
  *
- * @s1: char pointer
- * @s2: char pointer
+ * @str1: char pointer
+ * @str2: char pointer
  *
  * Return: difference between ascii number
  */
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *str1, char *str2)
 {
 	int length;
 
-	for (length = 0; s1[length] != 0; length++)
+	for (length = 0; str1[length] != 0; length++)
 	{
-	if (s1[length] - s2[length] != 0)
-	return (s1[length] - s2[length]);
+	if (str1[length] - str2[length] != 0)
+	return (str1[length] - str2[length]);
 	}
 
 	return (0);
