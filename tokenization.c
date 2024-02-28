@@ -11,13 +11,13 @@
 char **break_buff(char *buff)
 {
 	int len = 0;
-	char **toks = malloc(sizeof(char *) * strlen(buff));
+	char **toks = malloc(sizeof(char *) * str_len(buff));
 	char *delims = " \r\n\t";
 	char *tok = strtok(buff, delims);
 
 	while (tok != NULL)
 	{
-		toks[len] = strdup(tok);
+		toks[len] = str_dup(tok);
 		len++;
 
 		tok = strtok(NULL, delims);

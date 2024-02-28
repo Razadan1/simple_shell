@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
-* _strlen - returns the length of a string
-* @s: string to be counted
+* str_len - returns the length of a string
+* @str: string to be counted
 *
 * Return: returns length of string passed
 */
-int _strlen(char *s)
+char str_len(char *str)
 {
 	int count = 0;
 
@@ -19,13 +19,13 @@ int _strlen(char *s)
 }
 
 /**
-* _strcpy - copy src string into desty string
+* str_cpy - copy src string into desty string
 * @dest: destination string
 * @src: source string
 *
 * Return: returns new string containing dest and src
 */
-char *_strcpy(char *dest, const char *src)
+char *str_cpy(char *dest, const char *src)
 {
 	char *original_dest = dest;
 
@@ -41,13 +41,13 @@ char *_strcpy(char *dest, const char *src)
 }
 
 /**
-* _strcat - copy src string into desty string
+* str_cat - copy src string into desty string
 * @dest: destination string
 * @src: source string
 *
 * Return: returns new string
 */
-char *_strcat(char *dest, char *src)
+char *str_cat(char *dest, char *src)
 {
 	char *original_dest = dest;
 
@@ -69,12 +69,12 @@ char *_strcat(char *dest, char *src)
 
 
 /**
-* _strdup - dupicates string from array pointer
-* @s: string to be duplicated
+* str_dup - dupicates string from array pointer
+* @str: string to be duplicated
 *
 * Return: pointer to duplicate string
 */
-char *_strdup(char *s)
+char *str_dup(char *str)
 {
 	char *ptr;
 	int i, len;
