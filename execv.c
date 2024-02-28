@@ -25,9 +25,9 @@ void _execute(char **commands)
 		int value = execve(commands[0], commands, environ);
 
 		free_buff(commands);
-		if (value == 1)
+		if (value == -1)
 		{
-			perror("Command not found\n");
+			perror("Command not found");
 			exit(EXIT_FAILURE);
 		}
 	}
