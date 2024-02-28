@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
- * my_prompt - The Entry point for the shell project
+ * main - The Entry point for the shell project
  * Return: The return is 0 (void)
 */
-int my_prompt(void)
+int main(void)
 {
 	char *buff;
 	size_t buff_size = BUFFER_SIZE;
@@ -18,18 +18,20 @@ int my_prompt(void)
 	}
 	while (true)
 	{
-		write(STDOUT_FILENO, "$ ", 2);
+		prompt();
 		the_inputs = getline(&buff, &buff_size, stdin);
-		if (isatty(STDIN_FILENO))
+		if (the_inputs == -1)
 		{
-			while (the_inputs != -1)
+			if (feof(stdin))
 			{
-				buff[strspn(buff, "\n")] = '\0';
-				write(STDOUT_FILENO, "$ ", 2);
+				write(STDOUT_FILENO, "\n", 1);
+				free(buff);
+				return (0);
 			}
+			perror("Error reading line");
+			exit(EXIT_FAILURE);
 		}
-		else
-			write(STDOUT_FILENO, "$ ", 2);
+		buff[strcspn(buff, "\n")] = '\0';
 	}
 	free(buff);
 	return (0);
