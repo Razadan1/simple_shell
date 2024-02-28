@@ -17,7 +17,7 @@ char **break_buff(char *buff)
 
 	while (tok != NULL)
 	{
-		toks[len] = strcpy(tok, (char *)toks);
+		toks[len] = strdup(tok);
 		++len;
 
 		tok = strtok(NULL, delims);

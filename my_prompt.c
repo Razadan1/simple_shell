@@ -6,33 +6,21 @@
 */
 int main(void)
 {
-	char *buff;
-	size_t buff_size = BUFFER_SIZE;
-	ssize_t the_inputs;
+	bool isPipe = false;
+	ssize_t buff_len;
 
-	buff = (char *)malloc(sizeof(char) * buff_size);
-	if (!buff)
+	while (!isPipe && true)
 	{
-		perror("Unable to allocate buffer");
-		exit(EXIT_FAILURE);
-	}
-	while (true)
-	{
-		prompt();
-		the_inputs = getline(&buff, &buff_size, stdin);
-		if (the_inputs == -1)
+		if (isatty(STDIN_FILENO) == 0)
+			isPipe = true;
+		else
+			prompt();
+		buff_len = _getline();
+		if (buff_len == EOF)
 		{
-			if (feof(stdin))
-			{
-				write(STDOUT_FILENO, "\n", 1);
-				free(buff);
-				return (0);
-			}
-			perror("Error reading line");
-			exit(EXIT_FAILURE);
+			isPipe = true;
+			exit(EXIT_SUCCESS);
 		}
-		buff[strcspn(buff, "\n")] = '\0';
 	}
-	free(buff);
 	return (0);
 }

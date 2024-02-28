@@ -9,7 +9,7 @@
 ssize_t _getline(void)
 {
 	char *buff =  NULL;
-	size_t buff_size = BUFFER_SIZE;
+	size_t buff_size = 0;
 	char **commands;
 	ssize_t buff_len;
 
@@ -41,7 +41,7 @@ ssize_t _getline(void)
 		free(buff);
 		_execute(commands);
 		buff_size = 0;
-		if (isatty(STDIN_FILENO) != 0)
+		if (isatty(STDIN_FILENO) == 0)
 			break;
 	}
 	return (buff_len);
